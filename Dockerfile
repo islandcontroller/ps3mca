@@ -7,8 +7,7 @@ FROM ubuntu:latest as extractor
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
-    p7zip-rar \
-    tar
+    p7zip-rar
 
 # Package sources:
 # Mirror 1: Web Archive  https://web.archive.org/web/20150919174246/http://psx-scene.com/forums/f153/%5Bwindows-linux%5D-fmcb-1-9x-installer-ps3-memory-card-adaptor-132919/
@@ -30,8 +29,7 @@ FROM ubuntu:latest
 # Install dependencies
 RUN dpkg --add-architecture i386 && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    libusb-0.1-4:i386 \
-    usbutils
+    libusb-0.1-4:i386
 
 # Copy extracted binary from extractor stage
 COPY --from=extractor /tmp/ps3mca/ps3mca-tool /usr/local/bin/

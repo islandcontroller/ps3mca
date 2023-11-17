@@ -29,7 +29,7 @@
         ps3mca-tool -i
 
 ### Notes:
-* Use a second volume mount if you want to exchange files between your hose and the container. The default workdir location is `/root/mca`.
+* Use a second volume mount if you want to exchange files between your host and the container. The default workdir location is `/root/mca`.
 
         sudo docker run \
             --privileged \
